@@ -72,12 +72,17 @@ public class Trace extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+
                         if(bluetoothAdapter==null){
                             Toast.makeText(getApplicationContext(),"Bluetooth does not support on this device",Toast.LENGTH_LONG).show();
                         }
                         else {
                             if (!bluetoothAdapter.isEnabled()) {
                                 startActivityForResult(btEnablingIntent, requestCodeForEnable);
+                            }
+                            else if(bluetoothAdapter.isEnabled()){
+                                Toast.makeText(getApplicationContext(),"Tracing started",Toast.LENGTH_LONG).show();
+                                recordTracing();
                             }
                         }
                     }

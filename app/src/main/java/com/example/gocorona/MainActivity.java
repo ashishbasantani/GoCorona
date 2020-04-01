@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    ImageView starttrace,gettraceduser,getreportsbtn,getchatbtn,gethelpbtn;
+    ImageView starttrace,gettraceduser,getreportsbtn,getchatbtn,gethelpbtn,getaboutbtn;
     TextView textstarttrace;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,11 +24,25 @@ public class MainActivity extends AppCompatActivity {
         getreportsbtn=findViewById(R.id.getReportsButton);
         getchatbtn=findViewById(R.id.chatButton);
         gethelpbtn=findViewById(R.id.helpButton);
+        getaboutbtn=findViewById(R.id.aboutButton);
 
         traceFunction();
         reportsFunctions();
         chatFunction();
         helpFunction();
+        aboutFunction();
+    }
+
+    private void aboutFunction() {
+        getaboutbtn.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent i=new Intent(getApplicationContext(),About.class);
+                        startActivity(i);
+                    }
+                }
+        );
     }
 
     private void helpFunction() {
@@ -119,6 +133,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void getHelpFunctionText(View view) {
         Intent i=new Intent(getApplicationContext(),GetHelp.class);
+        startActivity(i);
+    }
+
+    public void getAboutFunctionText(View view) {
+        Intent i=new Intent(getApplicationContext(),About.class);
         startActivity(i);
     }
 }

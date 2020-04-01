@@ -41,7 +41,7 @@ public class DatabaseConnectivity extends SQLiteOpenHelper {
     DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
     String strDate = dateFormat.format(date);
 
-    cv.put("DATE","aaa");
+    cv.put("DATE",strDate);
 
     db.insert("tracedUser",null,cv);
 
